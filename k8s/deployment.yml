@@ -18,11 +18,11 @@ spec:
           image: localhost:5001/blogger-pro:{{BUILD_NUMBER}}
           resources:
             limits:
-              memory: 1Gi
-              cpu: 1000m
+              memory: 600Mi
+              cpu: 200m
             requests:
-              memory: 500Mi
-              cpu: 500m
+              memory: 300Mi
+              cpu: 100m
           ports:
             - name: frontend-port
               containerPort: 8000
@@ -36,9 +36,9 @@ metadata:
   name: blogger-pro
 spec:
   ports:
-    -
+    - name: frontend-port
       port: 8000
-    -
+    - name: backend-port
       port: 3000
   selector:
     app.kubernetes.io/name: blogger-pro
