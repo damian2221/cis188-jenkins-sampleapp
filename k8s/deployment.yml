@@ -18,11 +18,11 @@ spec:
           image: localhost:5001/blogger-pro:{{BUILD_NUMBER}}
           resources:
             limits:
-              memory: 600Mi
-              cpu: 200m
+              memory: 1.2Gi
+              cpu: 500m
             requests:
-              memory: 300Mi
-              cpu: 100m
+              memory: 700Mi
+              cpu: 300m
           ports:
             - name: frontend-port
               containerPort: 8000
