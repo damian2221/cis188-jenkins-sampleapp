@@ -24,7 +24,7 @@ spec:
               memory: 700Mi
               cpu: 300m
           ports:
-            - name: blogger-pro-port
+            - name: app-port
               containerPort: 3000
 
 ---
@@ -34,7 +34,7 @@ metadata:
   name: blogger-pro
 spec:
   ports:
-    - name: blogger-pro-port
+    - name: app-port
       port: 3000
   selector:
     app.kubernetes.io/name: blogger-pro
