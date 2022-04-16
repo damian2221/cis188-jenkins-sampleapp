@@ -18,15 +18,13 @@ spec:
           image: localhost:5001/blogger-pro:{{BUILD_NUMBER}}
           resources:
             limits:
-              memory: 1.2Gi
+              memory: 1Gi
               cpu: 500m
             requests:
               memory: 700Mi
               cpu: 300m
           ports:
-            - name: frontend-port
-              containerPort: 8000
-            - name: backend-port
+            - name: blogger-pro-port
               containerPort: 3000
 
 ---
@@ -36,9 +34,18 @@ metadata:
   name: blogger-pro
 spec:
   ports:
-    - name: frontend-port
-      port: 8000
-    - name: backend-port
+    - name: blogger-pro-port
       port: 3000
   selector:
     app.kubernetes.io/name: blogger-pro
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: blogger-pro-ingress
+spec:
+  defaultBackend:
+    service:
+      name: blogger-pro
+      port:
+        number: 8000
