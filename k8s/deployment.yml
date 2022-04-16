@@ -15,7 +15,7 @@ spec:
       hostNetwork: true
       containers:
         - name: blogger-pro
-          image: localhost:5001/blogger-pro:$BUILD_NUMBER
+          image: localhost:5001/blogger-pro:{{BUILD_NUMBER}}
           resources:
             limits:
               memory: 1Gi
